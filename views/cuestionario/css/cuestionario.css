@@ -13719,3 +13719,8 @@ img[src='null']{
     height: 100px;
     width: 50%;
 }
+.terminar{
+  display: block!important;
+  margin: 47px auto;
+  width: 33%;
+}

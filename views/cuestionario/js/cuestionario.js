@@ -79,6 +79,17 @@
             frameQuiz.innerHTML='';
             frameQuiz.appendChild(template);
         }
+        this.isLogged=function(){
+            tools.postData(path+'/controller/cuestionario/index.php',{action:'isLogged'},ev=>{
+                if(ev.response!=true){
+                    console.log(ev.response);
+                    modalLogin();
+                    return false;
+                }else{
+                    this.loadQuiz();
+                }
+            })
+        }
     };
     function paginado(json,seleccionado){
         var ul=document.createDocumentFragment('ul'),
@@ -328,9 +339,34 @@
        
         ft.tableFill(pn,tn,args,sp);
     }
+    function modalLogin(){
+        jQuery('#myModal').modal('show');
+        const modal=document.querySelector('#myModal');
+        const regButton=modal.querySelector('.btn-registro');
+        const mail=modal.querySelector('input[type=email]');
+        regButton.addEventListener('click',ev=>{
+            if(mail.checkValidity()){
+                registerAndLogin(mail.value);
+                jQuery('#myModal').modal('hide');
+            }else{
+                alert('correo no valido, recuerda que tiene que tener el siguiente formato: nombredeusuario@dominio.com');
+            }
+        });
+    }
+    function registerAndLogin(mail){
+         tools.postData(path+'/controller/cuestionario/index.php',{action:'register',mail},ev=>{
+             debugger;
+            const resp=JSON.parse(ev.response);
+            if(resp.success==1){
+                 mc.loadQuiz();
+            }else{
+                alert('Ya te has regstrado! para acceder al examen solo tienes que loggearte');
+            }
+         });
+    }
     const mc=new MainCuestionario();
     window.onload=function(ev){
-        mc.loadQuiz();
+        mc.isLogged();
         tools.wait(false,'Cargando Sistema...');
     }
 })();

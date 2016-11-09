@@ -110,7 +110,13 @@
                 case 'areas':{
                     $table=$db->query($link,'select area,count(area) as ppa from quiz group by area');
                     echo json_encode($table);
-                }
+                }break;
+                case 'isLogged':{
+                    echo is_user_logged_in();
+                }break;
+                case 'register':{
+                    $this->registerByMail($details['mail']);
+                }break;
             }
         }
         function correcto($respuesta,$resultado){
@@ -128,6 +134,18 @@
                 $values->user=$uid;
                 $values->date=$date;
                 $db->save($link,(array)$values,$table);
+            }
+        }
+        function registerByMail($mail,$level=''){
+            $password=uniqid();
+            $username=preg_split('/@/',$mail);
+            $id=wp_create_user( $username[0], $password, $mail );
+            if(!is_object($id)){
+                wp_set_auth_cookie($id);
+                $r['success']=true;
+                echo json_encode($r);
+            }else{
+                echo json_encode($id);
             }
         }
     }

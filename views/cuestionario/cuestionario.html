@@ -5,7 +5,26 @@
     tools.wait(true,'Cargando Sistema...');
 </script>
 <div class='frameQuiz bootstrap'>
-   
+    <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Antes de iniciar por favor ingresa tu correo</h4>
+      </div>
+      <div class="modal-body">
+        <input type="email" name="email" placeholder='Ingresa tu correo ejemplo@ejemplo.com' class='form-group' required />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-registro">Guardar</button>
+        <button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+
+  </div>
+</div>   
 </div>
 <script type="text/javascript" src="../wp-content/plugins/examen/assets/bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../wp-content/plugins/examen/assets/fontAwesome/css/font-awesome.min.css">

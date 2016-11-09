@@ -1,0 +1,24 @@
+[09-Nov-2016 21:37:56 UTC] PHP Fatal error:  Call to undefined function registerByMail() in /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php on line 118
+[09-Nov-2016 21:37:56 UTC] PHP Stack trace:
+[09-Nov-2016 21:37:56 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:0
+[09-Nov-2016 21:37:56 UTC] PHP   2. Cuestionario->__construct() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:145
+[09-Nov-2016 21:38:29 UTC] PHP Warning:  strip_tags() expects parameter 1 to be string, array given in /home/ubuntu/workspace/wp-includes/formatting.php on line 4626
+[09-Nov-2016 21:38:29 UTC] PHP Stack trace:
+[09-Nov-2016 21:38:29 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:0
+[09-Nov-2016 21:38:29 UTC] PHP   2. Cuestionario->__construct() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:145
+[09-Nov-2016 21:38:29 UTC] PHP   3. Cuestionario->registerByMail() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:118
+[09-Nov-2016 21:38:29 UTC] PHP   4. wp_create_user() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:142
+[09-Nov-2016 21:38:29 UTC] PHP   5. wp_insert_user() /home/ubuntu/workspace/wp-includes/user.php:1940
+[09-Nov-2016 21:38:29 UTC] PHP   6. sanitize_user() /home/ubuntu/workspace/wp-includes/user.php:1414
+[09-Nov-2016 21:38:29 UTC] PHP   7. wp_strip_all_tags() /home/ubuntu/workspace/wp-includes/formatting.php:1832
+[09-Nov-2016 21:38:29 UTC] PHP   8. strip_tags() /home/ubuntu/workspace/wp-includes/formatting.php:4626
+[09-Nov-2016 21:39:10 UTC] PHP Warning:  strip_tags() expects parameter 1 to be string, array given in /home/ubuntu/workspace/wp-includes/formatting.php on line 4626
+[09-Nov-2016 21:39:10 UTC] PHP Stack trace:
+[09-Nov-2016 21:39:10 UTC] PHP   1. {main}() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:0
+[09-Nov-2016 21:39:10 UTC] PHP   2. Cuestionario->__construct() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:145
+[09-Nov-2016 21:39:10 UTC] PHP   3. Cuestionario->registerByMail() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:118
+[09-Nov-2016 21:39:10 UTC] PHP   4. wp_create_user() /home/ubuntu/workspace/wp-content/plugins/examen/controller/cuestionario/index.php:142
+[09-Nov-2016 21:39:10 UTC] PHP   5. wp_insert_user() /home/ubuntu/workspace/wp-includes/user.php:1940
+[09-Nov-2016 21:39:10 UTC] PHP   6. sanitize_user() /home/ubuntu/workspace/wp-includes/user.php:1414
+[09-Nov-2016 21:39:10 UTC] PHP   7. wp_strip_all_tags() /home/ubuntu/workspace/wp-includes/formatting.php:1832
+[09-Nov-2016 21:39:10 UTC] PHP   8. strip_tags() /home/ubuntu/workspace/wp-includes/formatting.php:4626
