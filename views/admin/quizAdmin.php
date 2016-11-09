@@ -1,9 +1,9 @@
-<link rel="stylesheet" href="../wp-content/plugins/examen/assets/bootstrap/css/bootstrap.min.css" type="text/css" />
-<link rel="stylesheet" href="../wp-content/plugins/examen/assets/fontAwesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="../wp-content/plugins/examen/views/admin/css/admin.css">
+<link rel="stylesheet" href="/wp-content/plugins/examen/assets/bootstrap/css/bootstrap.min.css" type="text/css" />
+<link rel="stylesheet" href="/wp-content/plugins/examen/assets/fontAwesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/wp-content/plugins/examen/views/admin/css/admin.css">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
-<script type="text/javascript" src="../wp-content/plugins/examen/views/js/ajax.js"></script>
-<script type="text/javascript" src="../wp-content/plugins/examen/views/js/tools.js"></script>
+<script type="text/javascript" src="/wp-content/plugins/examen/views/js/ajax.js"></script>
+<script type="text/javascript" src="/wp-content/plugins/examen/views/js/tools.js"></script>
 <script>
     const tools=new Tools();
     tools.wait(true,'Cargando Sistema...');
@@ -90,9 +90,9 @@
     </div>
     
 </div>
-<script type="text/javascript" src="../wp-content/plugins/examen/views/admin/js/specialEvents.js"></script>
-<script type="text/javascript" src="../wp-content/plugins/examen/assets/tinymce/js/tinymce.min.js"></script>
-<script type="text/javascript" src="../wp-content/plugins/examen/assets/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../wp-content/plugins/examen/views/js/fillTemplates.js"></script>
-<script type="text/javascript" src="../wp-content/plugins/examen/views/admin/js/quizAdmin.js"></script>
+<script type="text/javascript" src="/wp-content/plugins/examen/views/admin/js/specialEvents.js"></script>
+<script type="text/javascript" src="/wp-content/plugins/examen/assets/tinymce/js/tinymce.min.js"></script>
+<script type="text/javascript" src="/wp-content/plugins/examen/assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/wp-content/plugins/examen/views/js/fillTemplates.js"></script>
+<script type="text/javascript" src="/wp-content/plugins/examen/views/admin/js/quizAdmin.js"></script>
 
