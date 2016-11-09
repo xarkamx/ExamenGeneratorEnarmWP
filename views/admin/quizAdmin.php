@@ -90,48 +90,6 @@
     </div>
     
 </div>
-<div class='panel version'>
-    <div  class="dropdown pull-right">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Version 0.5.6
-    <span class="caret"></span></button>
-    <div class='dropdown-menu'>
-        <h1>MultiExamen</h1>
-        El sistema esta en un estado temprano de desarrollo y los errores son esperables, cualquier situacion o sugerencia por favor de comunicarse al siguiente correo:<a href="mailto:programacion@web-gdl.com">programacion@web-gdl.com</a>
-        indicando los pasos a seguir para replicar el error.
-        <h3>Version 0.5.6 Beta</h3>
-            <ul>
-                <li>Se agrego opcion de eliminar imagen en caso de cambiar de opinion</li>
-                <li>se agrego funcion de vaciar formulario</li>
-                <li>El menu de preguntas en el examen ahora es horizontal</li>
-                <li>Se cambio la vista para mostrar resultados del examen</li>
-                <li>se arreglo problema que no te permitia guardar las preguntas</li>
-                <li>se mejoro ligeramente los tiempos de carga.</li>
-            </ul>
-        <h3>Version 0.5 Beta</h3>
-            <ul>
-                <li>Se agrego apartado shortcode de examen</li>
-                <li>Se agrego paginador para shortcode</li>
-                <li>Se agrego sistema de limpiado de respuestas</li>
-                <li>Se creo sistema de salvado de respuestas en DB</li>
-                <li>Se corrigio el error de respuesta por coma</li>
-            </ul>
-        <h3>Version 0.1 alpha</h3>
-            <ul>
-                <li>Formulario Ajax que permita crear y editar preguntas para el formulario</li>
-                <li>Vista del Formulario</li>
-                <li>Lista de preguntas creadas</li>
-                <li>Editor</li>
-                <li>Borrar Preguntas</li>
-            </ul>
-            Para utilizar el Plugin simplemente coloque el siguiente shortcode: [quizGenerator preguntas=12]
-        <div class="inside">
-        	<div class="main">
-        	    
-        	</div>
-        </div>
-    </div>
-</div>
-</div>
 <script type="text/javascript" src="../wp-content/plugins/examen/views/admin/js/specialEvents.js"></script>
 <script type="text/javascript" src="../wp-content/plugins/examen/assets/tinymce/js/tinymce.min.js"></script>
 <script type="text/javascript" src="../wp-content/plugins/examen/assets/bootstrap/js/bootstrap.min.js"></script>

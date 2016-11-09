@@ -360,7 +360,7 @@
             if(resp.success==1){
                  mc.loadQuiz();
             }else{
-                alert('Ya te has regstrado! para acceder al examen solo tienes que loggearte');
+                alert('Ya te has registrado! para acceder al examen solo tienes que loggearte');
             }
          });
     }
