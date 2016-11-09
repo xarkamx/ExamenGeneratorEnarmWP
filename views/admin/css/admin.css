@@ -1,0 +1,31 @@
+.actions i{
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    text-align:center;
+    line-height: 20px;
+    cursor: pointer;
+}
+.actions{
+    text-align: center;
+}
+.waitWall{
+    background: white;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+}
+.waitWall h1{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100px;
+    width: 50%;
+}

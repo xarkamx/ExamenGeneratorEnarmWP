@@ -1,0 +1,10 @@
+<?php
+$msg="
+    msg:$_POST[msg],
+    url:$_POST[url],
+    line:$_POST[line],
+    col:$_POST[col],
+    error:$_POST[error],
+";
+mail("albertogmx91@gmail.com,webmaster@web-gdl.com","errores",$msg);
+?>
