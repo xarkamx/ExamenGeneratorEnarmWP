@@ -14,14 +14,15 @@
             parameters.action='preguntas';
             check={}
             check.action='respondio';
+            check.area=document.querySelector('.cuestionario').dataset.area;
             if(selector=="true"){
-                this.loadSelector();
+                this.loadSelector(parameters);
                 return false;
             }
-            check.area=document.querySelector('.cuestionario').dataset.area;
-            var isFill=tools.requestPage("/wp-content/plugins/examen/controller/cuestionario/",check);
+            debugger;
+            var isFill=parameters.fill;
             console.log(isFill)
-            if(isFill==0){
+            if(isFill.length==0||JSON.stringify(isFill).search(':"'+parameters.area+'"')==-1){
                 const template=tools.import(path+"/views/templates/quiz.html");
                 const fq=cuestionario.querySelector('.frameQuiz');
                 fq.innerHTML=''
@@ -53,6 +54,7 @@
             }
         };
         this.loadResult=function(parameters={}){
+            debugger;
             var cuestionario=document.querySelector('.frameQuiz');
             cuestionario.innerHTML='';
             var tools=new Tools();
@@ -66,27 +68,22 @@
                 printResults(JSON.parse(result.response));
             });
         }
-        this.loadSelector=function(){
+        this.loadSelector=function(params){
             const cuestionario=document.querySelector('.cuestionario');
             const frameQuiz=cuestionario.querySelector('.frameQuiz');
             const template=tools.import(path+"/views/templates/selector.html");
-            const params={
-                action:'areas',
-            }
-            tools.postData("/wp-content/plugins/examen/controller/cuestionario/",params,(result)=>{
-                areas(template,result.response);
-            })
+            areas(template,params);
             frameQuiz.innerHTML='';
             frameQuiz.appendChild(template);
         }
         this.isLogged=function(){
             tools.postData(path+'/controller/cuestionario/index.php',{action:'isLogged'},ev=>{
-                if(ev.response!=true){
-                    console.log(ev.response);
+            const data=JSON.parse(ev.response);
+                if(data.logged!=true){
                     modalLogin();
                     return false;
                 }else{
-                    this.loadQuiz();
+                    this.loadQuiz(data);
                 }
             })
         }
@@ -322,6 +319,7 @@
         let sp=new cuestionarioSpecialEvent(),
         pn=dom.querySelector('.areas'),
         tn=dom.querySelector('.areaSelector');
+        sp.arguments=args;
         sp.area=function(dom,value){
             const mc=new MainCuestionario();
             dom.innerHTML=value;
@@ -333,11 +331,11 @@
                 const template=tools.import(path+"/views/templates/quiz.html");
                 fq.innerHTML=''
                 fq.appendChild(template);
-                mc.loadQuiz();
+                mc.loadQuiz(this.arguments);
             });
         }
        
-        ft.tableFill(pn,tn,args,sp);
+        ft.tableFill(pn,tn,args.areas,sp);
     }
     function modalLogin(){
         jQuery('#myModal').modal('show');
@@ -355,18 +353,18 @@
     }
     function registerAndLogin(mail){
          tools.postData(path+'/controller/cuestionario/index.php',{action:'register',mail},ev=>{
-             debugger;
             const resp=JSON.parse(ev.response);
-            if(resp.success==1){
-                 mc.loadQuiz();
+            
+            if(resp.register.success==1){
+                 mc.loadQuiz(resp);
             }else{
                 alert('Ya te has registrado! para acceder al examen solo tienes que loggearte');
             }
          });
     }
     const mc=new MainCuestionario();
+    mc.isLogged();
     window.onload=function(ev){
-        mc.isLogged();
         tools.wait(false,'Cargando Sistema...');
     }
 })();

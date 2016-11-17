@@ -141,9 +141,10 @@
             }
             switch (item.tagName) {
                 case 'IMG':{
-                    item.src=row[column];
-                    if(row[column]==''){
+                    if(row[column]==''||row[column]==null){
                         item.parentElement.removeChild(item);
+                    }else{
+                        item.src=row[column];
                     }
                 }break;
                 case 'UL':{

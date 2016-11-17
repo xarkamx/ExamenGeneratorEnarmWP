@@ -63,7 +63,7 @@
         xmlhttp.send('json='+json);
     }
     this.simple_cURL=function(args){
-        console.log('simpleCurl')
+        console.log(args.url)
         var xmlhttp=ajax_connect();
         var response='';
         if(args.asinc==true&&args.callback==undefined){

@@ -149,7 +149,13 @@
         }
         this.import=function(path){
             const md=document.createElement('div');
-            md.innerHTML=this.requestPage(path);
+            let ss=sessionStorage.getItem(path);
+            if(ss==null){
+                md.innerHTML=this.requestPage(path);
+                sessionStorage.setItem(path,md.innerHTML);
+            }else{
+                md.innerHTML=ss;
+            }
             return md;
         }
     }

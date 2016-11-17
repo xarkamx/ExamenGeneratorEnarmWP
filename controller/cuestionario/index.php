@@ -56,10 +56,7 @@
                     $db->query($link,$query,$false);
                 }break;
                 case 'respondio':{
-                    $area=$details['area'];
-                    $query=($area!='')?"and area='$area'":'';
-                    $table=$db->query($link,"select count(id) as cant from respuestas where user=$uid and fecha='$date' $query");
-                    echo $table[0]['cant'];
+                   echo $this->isFill($link,$db,$details,$uid,$date);
                 }break;
                 case 'respuestas':{
                     $date=date('Y-m-d');
@@ -108,14 +105,23 @@
                     echo "delete from respuestas where user=$uid and fecha='$date' $query";
                 }break;
                 case 'areas':{
-                    $table=$db->query($link,'select area,count(area) as ppa from quiz group by area');
-                    echo json_encode($table);
+                   echo json_encode($this->areas($db,$link));
                 }break;
                 case 'isLogged':{
-                    echo is_user_logged_in();
+                    $data=[
+                        'logged'=>is_user_logged_in(),
+                        'areas'=>$this->areas($db,$link),
+                        'fill'=>$this->isFill($link,$db,$details,$uid,$date)
+                        ];
+                    echo json_encode($data);
                 }break;
                 case 'register':{
-                    $this->registerByMail($details['mail']);
+                    $data=[
+                        'register'=> $this->registerByMail($details['mail']),
+                        'areas'=>$this->areas($db,$link),
+                        'fill'=>$this->isFill($link,$db,$details,$uid,$date)
+                        ];
+                        echo json_encode($data);
                 }break;
             }
         }
@@ -143,10 +149,17 @@
             if(!is_object($id)){
                 wp_set_auth_cookie($id);
                 $r['success']=true;
-                echo json_encode($r);
+                 return $r;
             }else{
-                echo json_encode($id);
+                return $id;
             }
+        }
+        function isFill($link,$db,$details,$uid,$date){
+            $table=$db->query($link,"select area from respuestas where user=$uid and fecha='$date' group by area");
+            return $table;
+        }
+        function areas($db,$link){
+             return $db->query($link,'select area,count(area) as ppa from quiz group by area');
         }
     }
     $cuestionario=new Cuestionario($_POST);
